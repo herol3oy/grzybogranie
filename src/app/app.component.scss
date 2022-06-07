@@ -1,0 +1,10 @@
+.grzybogranie-root {
+  &__spacer {
+    flex: 1 1 auto;
+  }
+
+  &__app-title {
+    text-decoration: none;
+    font-weight: 900;
+  }
+}
