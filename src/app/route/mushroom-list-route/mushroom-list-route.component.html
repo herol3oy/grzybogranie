@@ -1,0 +1,31 @@
+<main class="grzybogranie-mushroom-list-route">
+  <div class="grzybogranie-mushroom-list-route__buttons-container">
+    <button mat-raised-button olor="primary" (click)="filterMushrooms('')" c>
+      All
+    </button>
+    <button
+      mat-raised-button
+      color="warn"
+      (click)="filterMushrooms('poisonous')"
+    >
+      Poisonous
+    </button>
+    <button
+      mat-raised-button
+      color="accent"
+      (click)="filterMushrooms('eatable')"
+    >
+      Eatable
+    </button>
+  </div>
+  <div class="grzybogranie-mushroom-list-route__mushroom-container">
+    <grzybogranie-mushroom
+      *ngFor="let mushroom of filteredMushrooms"
+      [mushroom]="mushroom"
+    ></grzybogranie-mushroom>
+  </div>
+  <h3 *ngIf="noMushroomToDisplayMessage.length">
+    {{ noMushroomToDisplayMessage }}
+  </h3>
+  <h3 *ngIf="mushroomErrorMessage.length">{{ mushroomErrorMessage }}</h3>
+</main>

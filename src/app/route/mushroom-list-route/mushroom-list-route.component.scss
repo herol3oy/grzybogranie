@@ -1,0 +1,17 @@
+.grzybogranie-mushroom-list-route {
+  padding: 3rem;
+
+  &__buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+  }
+
+  &__mushroom-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(22rem, 14rem));
+    gap: 1em;
+    justify-content: center;
+    margin-top: 2em;
+  }
+}

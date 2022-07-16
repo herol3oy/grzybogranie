@@ -1,0 +1,17 @@
+<div class="grzybogranie-mushroom">
+  <mat-card class="grzybogranie-mushroom__card">
+    <img
+      class="grzybogranie-mushroom__mushroom-image"
+      src="assets/{{ mushroom.name }}.png"
+      [alt]="mushroom.name"
+    />
+    <div class="grzybogranie-mushroom__overlay">
+      <p class="grzybogranie-mushroom__mushroom-name">
+        {{ mushroom.name | titlecase }}
+        <mat-chip-list aria-label="Mushroom type">
+          <mat-chip color="primary" selected>{{ mushroom.type }}</mat-chip>
+        </mat-chip-list>
+      </p>
+    </div>
+  </mat-card>
+</div>
