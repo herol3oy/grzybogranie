@@ -92,7 +92,7 @@ nav ul {
 }
 
 .flip-card-back {
-  background-image: url("pattern_grzybobranie.png");
+  background-image: url("./pattern_grzybobranie.png");
   background-size: contain;
   transform: rotateY(180deg);
   display: flex;

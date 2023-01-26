@@ -1,5 +1,5 @@
 import { MemoryGame } from "./components/MemoryGame";
-import "./app.css";
+import "./App.css";
 import { Routes, Route, Outlet, Link } from "react-router-dom";
 import { MUSHROOMS } from "./core/mushrooms";
 import { useState } from "preact/hooks";
@@ -107,7 +107,7 @@ function Home() {
           <div key={m.id} className="flip-card mushroom">
             <div className="flip-card-inner">
               <div className="flip-card-front">
-                <img src={`${m.name}` + ".png"} alt={m.name} />
+                <img src={`${m.name}.png`} alt={m.name} />
               </div>
               <div className="flip-card-back">
                 <h1>{toTitleCase(m.name)}</h1>
