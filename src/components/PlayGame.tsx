@@ -2,10 +2,10 @@ import { useEffect, useState } from "preact/hooks";
 import { MUSHROOMS } from "../core/mushrooms";
 import { Mushroom } from "../types/mushroom";
 import SingleCard from "./SingleCard";
+import "./PlayGame.css";
 
 export function PlayGame() {
   const [cards, setCards] = useState<Mushroom[]>([]);
-  const [turns, setTurns] = useState<number>(0);
   const [choiceOne, setChoiceOne] = useState<Mushroom | null>(null);
   const [choiceTwo, setChoiceTwo] = useState<Mushroom | null>(null);
   const [disabled, setDisabled] = useState<boolean>(false);
@@ -35,11 +35,10 @@ export function PlayGame() {
   useEffect(() => shuffleCards(), []);
 
   const shuffleCards = () => {
-    const shuffleCards = [...MUSHROOMS, ...MUSHROOMS]
+    const shuffleCards = [...MUSHROOMS.slice(0, 8), ...MUSHROOMS.slice(0, 8)]
       .sort(() => Math.random() - 0.5)
       .map((card) => ({ ...card, id: Math.random() }));
     setCards(shuffleCards);
-    setTurns(0);
   };
 
   const handleChoice = (card: Mushroom) =>
@@ -48,16 +47,14 @@ export function PlayGame() {
   const resetTurn = () => {
     setChoiceOne(null);
     setChoiceTwo(null);
-    setTurns((prevTurn: number): number => prevTurn + 1);
     setDisabled(false);
   };
   return (
-    <>
+    <div className='container'>
       {cards.length && !cards.find((c) => !c.matched)
         ? alert("heeeeyyyy!")
         : null}
 
-      <h1>Grazybogranie</h1>
       <button onClick={() => shuffleCards()}>New Game</button>
 
       <div className="card-grid">
@@ -71,7 +68,6 @@ export function PlayGame() {
           />
         ))}
       </div>
-      <p>Turns: {turns}</p>
-    </>
+    </div>
   );
 }

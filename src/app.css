@@ -1,21 +1,165 @@
-.App {
-  max-width: 860px;
-  margin: 40px auto;
-}
-button {
-  background: #c23866;
-  border: 2px solid #fff;
-  padding: 6px 12px;
-  border-radius: 4px;
-  color: #fff;
-  font-weight: bold;
-  cursor: pointer;
-  font-size: 1em;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;900&display=swap');
+
+:root {
+  --accent-color: #603813;
+  --poisonous-color: #b45a53;
+  --eatable-color: #406053;
 }
 
-.card-grid {
-  margin-top: 40px;
+
+*::-webkit-scrollbar {
+  width: 0.15rem;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+}
+
+*::-webkit-scrollbar-track {
+  background: white;
+}
+
+body {
+  background-color: #e0decf;
+  font-family: 'Roboto', sans-serif;
+}
+.mushrooms {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(22rem, 14rem));
+  gap: 1em;
+  justify-content: center;
+  margin-top: 2em;
+}
+
+.mushroom {
+  background-color: transparent;
+}
+
+.mushroom img {
+  width: 300px;
+  height: 300px;
+  border-radius: 50px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 3rem;
+}
+
+nav img {
+  width: 85px;
+}
+
+nav ul {
+  display: flex;
+  gap: 2rem;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 300px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+  border-radius: 50px;
+}
+
+.flip-card-back {
+  background-image: url("pattern_grzybobranie.png");
+  background-size: contain;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.flip-card-back h1 {
+  color: var(--accent-color);
+  font-size: 3rem;
+}
+
+.flip-card-back p {
+  border-radius: 20px;
+  color: #fff;
+  font-size: 1rem;
+  padding: 7px 12px;
+  font-weight: bolder;
+  margin: 0;
+}
+
+.home-header {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 1rem;
+}
+
+.home-header h1 {
+  font-size: 4rem;
+  font-weight: 900;
+  margin: 0;
+  color: var(--accent-color);
+}
+
+.home-header p {
+  font-size: 2rem;
+  font-weight: lighter;
+  color: var(--accent-color);
+  margin: 0;
+}
+
+.home-header section {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.home-header button {
+  color: #fff;
+  font-weight: 700;
+  width: 10em;
+  border-radius: 5em;
+  border: none;
+  padding: .6rem 1rem;
+  cursor: pointer;
+}
+
+.chip-all {
+  background-color: var(--accent-color);
+}
+
+.chip-eatable {
+  background-color: var(--eatable-color);
+}
+
+.chip-poisonous {
+  background-color: var(--poisonous-color);
 }
