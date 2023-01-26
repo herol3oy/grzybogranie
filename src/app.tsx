@@ -1,4 +1,4 @@
-import { PlayGame } from "./components/PlayGame";
+import { MemoryGame } from "./components/MemoryGame";
 import "./app.css";
 import { Routes, Route, Outlet, Link } from "react-router-dom";
 import { MUSHROOMS } from "./core/mushrooms";
@@ -20,8 +20,7 @@ export function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="play" element={<PlayGame />} />
-          <Route path="about" element={<About />} />
+          <Route path="play" element={<MemoryGame />} />
           <Route path="*" element={<NoMatch />} />
         </Route>
       </Routes>
@@ -30,25 +29,17 @@ export function App() {
 }
 function Layout() {
   return (
-    <div>
+    <>
       <nav>
         <Link to="/">
-          <img src="logo_grzybobranie.svg" alt="" />
+          <img src="logo_grzybobranie.svg" alt="Grzybobranie logo" />
         </Link>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/play">Play game</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-        </ul>
+        <Link to="/play">
+          <button>Play Memory Game</button>
+        </Link>
       </nav>
       <Outlet />
-    </div>
+    </>
   );
 }
 function Home() {
@@ -70,6 +61,24 @@ function Home() {
   return (
     <>
       <section className="home-header">
+        <section className="credits">
+          <div>
+            <small>Designer & illustrator:</small>
+            <a href="https://www.instagram.com/nat.designer/">
+              <p>
+                <b>Natalia Zaremba</b>
+              </p>
+            </a>
+          </div>
+          <div>
+            <small>Developer:</small>
+            <a href="https://github.com/herol3oy/">
+              <p>
+                <b>Hamed Sedighi</b>
+              </p>
+            </a>
+          </div>
+        </section>
         <h1>Explor the forest</h1>
         <p>Challenge your Polishness!</p>
         <section>
@@ -117,24 +126,6 @@ function Home() {
         ))}
       </div>
     </>
-  );
-}
-
-function About() {
-  return (
-    <div>
-      <span>Illustrator:</span>
-      <div>
-        <h2>Natalia Zaremba</h2>
-        <a href="https://www.instagram.com/nat.designer/">Instagram</a>
-      </div>
-      <hr />
-      <span>Developer:</span>
-      <div>
-        <h2>Hamed Sedighi</h2>
-        <a href="https://github.com/herol3oy/femalerockers">Github</a>
-      </div>
-    </div>
   );
 }
 

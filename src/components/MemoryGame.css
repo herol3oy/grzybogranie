@@ -1,6 +1,12 @@
 .container {
   max-width: 860px;
-  margin: 40px auto;
+  margin: auto;
+  text-align: center  ;
+}
+
+.container h1 {
+  color: var(--accent-color);
+  font-size: 4rem;
 }
 
 button {
@@ -15,8 +21,9 @@ button {
 }
 
 .card-grid {
-  margin-top: 40px;
+  margin-top: 1rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 20px;
 }
+

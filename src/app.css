@@ -163,3 +163,17 @@ nav ul {
 .chip-poisonous {
   background-color: var(--poisonous-color);
 }
+
+.home-header section {
+  margin-top: 2rem;
+}
+
+.credits {
+  display: flex;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.credits p {
+  font-size: 1rem;
+}

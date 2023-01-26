@@ -2,13 +2,17 @@ import { useEffect, useState } from "preact/hooks";
 import { MUSHROOMS } from "../core/mushrooms";
 import { Mushroom } from "../types/mushroom";
 import SingleCard from "./SingleCard";
-import "./PlayGame.css";
+import "./MemoryGame.css";
+import Confetti from "react-confetti";
+import { useWindowSize } from "./use-windows";
 
-export function PlayGame() {
+export function MemoryGame() {
   const [cards, setCards] = useState<Mushroom[]>([]);
   const [choiceOne, setChoiceOne] = useState<Mushroom | null>(null);
   const [choiceTwo, setChoiceTwo] = useState<Mushroom | null>(null);
   const [disabled, setDisabled] = useState<boolean>(false);
+
+  const { width, height } = useWindowSize();
 
   useEffect(() => {
     if (choiceOne && choiceTwo) {
@@ -50,10 +54,12 @@ export function PlayGame() {
     setDisabled(false);
   };
   return (
-    <div className='container'>
-      {cards.length && !cards.find((c) => !c.matched)
-        ? alert("heeeeyyyy!")
-        : null}
+    <div className="container">
+      {cards.length && !cards.find((c) => !c.matched) ? (
+        <Confetti width={width} height={height} />
+      ) : null}
+
+      <h1>Challenge your Polishness and find the pairs 🍄🍄</h1>
 
       <button onClick={() => shuffleCards()}>New Game</button>
 
